@@ -1,0 +1,56 @@
+<html><head>
+    <title>
+      BLOQUEO BOTON DERECHO
+    </title>
+	<style>
+	p{
+		position: relative;
+		bottom: 0px;
+		border: 1px solid black;
+	}
+	a{
+		text-decoration: none;
+	}
+	</style>
+    <script language="JavaScript">
+    <!--
+    function addEvent(elemento, nomevento, funcion, captura){
+    //Si existe AttachEvent es IE
+      if(elemento.attachEvent){
+        elemento.attachEvent('on'+nomevento,funcion);
+        return true;
+      }
+      else //En case contrario comprobamos si dispone del otro controlador
+        if(elemento.addEventListener){
+          elemento.addEventListener(nomevento, funcion, captura);
+          return true;
+        }
+        else
+          return false;
+    }
+    //Función que se encarga de asignar el evento a los dos enlaces de la pagina
+    function bloquear(){
+      var enlaces=document.getElementsByTagName("a");
+      for (i=0;i<enlaces.length;i++){
+        addEvent(enlaces[i],"mousedown", clock, false);
+      }
+    }
+    /*Esta funcion se ejecuta al producirse el evento, el parámetro es necesario en firefox
+    para obtener el objeto EVENT que contiene las caracteristicas del evento*/
+    function clock(evento){
+      //Con esta instrucción asignamos a la variable el objeto segun exista
+      var controlevento=evento||event;
+      //Comprobamos que botón han pulsado para provocar el evento
+      if(controlevento.button == 2){
+        alert('Buen intento, no puedes usar el boton derecho');
+      }
+    }
+    //-->
+  </script>
+</head><body onload="bloquear()">
+<a name="enlace" href="#">Primer enlace prohibido</a><br>
+<a name="enlace" href="#">Segundo enlace prohibido</a><br>
+<a name="enlace" href="#">Tercer enlace prohibido</a>
+<p>By David Sarria</p>
+
+</body></html>
